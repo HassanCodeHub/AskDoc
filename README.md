@@ -15,27 +15,27 @@ The system is designed to keep generated answers **grounded in the uploaded docu
 <!-- Keep your existing screenshots here -->
 
 <p align="center">
-  <img src="C:\codings\AskDoc\screenshots\Landing_page.png" alt="AskDoc Dashboard" width="900"/>
+  <img src="screenshots\Landing_page.png" alt="AskDoc Dashboard" width="900"/>
 </p>
 
 <p align="center">
-  <img src="C:\codings\AskDoc\screenshots\Document_ready.png" alt="AskDoc Document Q&A" width="900"/>
+  <img src="screenshots\Document_ready.png" alt="AskDoc Document Q&A" width="900"/>
 </p>
 
 <p align="center">
-  <img src="C:\codings\AskDoc\screenshots\Upload_page.png" alt="AskDoc Document Q&A" width="900"/>
+  <img src="screenshots\Upload_page.png" alt="AskDoc Document Q&A" width="900"/>
 </p>
 
 <p align="center">
-  <img src="C:\codings\AskDoc\screenshots\Question_input.png" alt="AskDoc Document Q&A" width="900"/>
+  <img src="screenshots\Question_input.png" alt="AskDoc Document Q&A" width="900"/>
 </p>
 
 <p align="center">
-  <img src="C:\codings\AskDoc\screenshots\Loading_response.png" alt="AskDoc Document Q&A" width="900"/>
+  <img src="screenshots\Loading_response.png" alt="AskDoc Document Q&A" width="900"/>
 </p>
 
 <p align="center">
-  <img src="C:\codings\AskDoc\screenshots\Chat_response.png" alt="AskDoc Document Q&A" width="900"/>
+  <img src="screenshots\Chat_response.png" alt="AskDoc Document Q&A" width="900"/>
 </p>
 
 ---
