@@ -1,45 +1,72 @@
-AskDoc — AI Document Q&A Platform
+# AskDoc — AI Document Q&A Platform
 
-Ask questions about your documents and get grounded answers with page-level citations.
+> **Ask questions about your documents and get grounded answers with page-level citations.**
 
-AskDoc is a full-stack AI document question-answering platform built around a Retrieval-Augmented Generation (RAG) pipeline. Users can upload documents, process their content into searchable chunks, retrieve relevant information using local embeddings and cosine similarity, and ask questions through a conversational interface.
+AskDoc is a full-stack **AI Document Question-Answering platform** built around a Retrieval-Augmented Generation (RAG) pipeline.
 
-The system is designed to keep document retrieval grounded in the uploaded content and provide page-level citations with generated answers.
+It allows users to upload documents, extract and chunk their content, generate local semantic embeddings, retrieve relevant information using cosine similarity, and ask questions through a conversational interface.
 
-✨ Features
+The system is designed to keep generated answers **grounded in the uploaded document content** while providing **page-level references** for retrieved information.
 
-📄 Document upload and processing
+---
 
-✂️ Text extraction and document chunking
+## 📸 Project Preview
 
-🧠 Local semantic embeddings using Sentence Transformers
+<!-- Keep your existing screenshots here -->
 
-🔎 Similarity-based document retrieval using cosine similarity
+<p align="center">
+  <img src="C:\codings\AskDoc\screenshots\Landing_page.png" alt="AskDoc Dashboard" width="900"/>
+</p>
 
-🤖 AI-powered question answering with Groq
+<p align="center">
+  <img src="C:\codings\AskDoc\screenshots\Document_ready.png" alt="AskDoc Document Q&A" width="900"/>
+</p>
 
-📑 Page-level citations for retrieved information
+<p align="center">
+  <img src="C:\codings\AskDoc\screenshots\Upload_page.png" alt="AskDoc Document Q&A" width="900"/>
+</p>
 
-💬 Conversational Q&A interface
+<p align="center">
+  <img src="C:\codings\AskDoc\screenshots\Question_input.png" alt="AskDoc Document Q&A" width="900"/>
+</p>
 
-🚫 Out-of-scope question handling when information is not found in the document
+<p align="center">
+  <img src="C:\codings\AskDoc\screenshots\Loading_response.png" alt="AskDoc Document Q&A" width="900"/>
+</p>
 
-⚡ Streaming responses for interactive answers
+<p align="center">
+  <img src="C:\codings\AskDoc\screenshots\Chat_response.png" alt="AskDoc Document Q&A" width="900"/>
+</p>
 
-🗄️ MySQL database integration
+---
 
-🔌 Flask REST API backend
+## ✨ Features
 
-⚛️ React frontend with Vite
+| Feature                           | Description                                                       |
+| --------------------------------- | ----------------------------------------------------------------- |
+| 📄 **Document Upload**            | Upload documents for processing and question answering            |
+| ✂️ **Text Extraction & Chunking** | Extract document content and divide it into searchable chunks     |
+| 🧠 **Local Embeddings**           | Generate semantic embeddings using Sentence Transformers          |
+| 🔎 **Semantic Retrieval**         | Retrieve relevant chunks using cosine similarity                  |
+| 🤖 **AI Question Answering**      | Generate grounded answers using Groq                              |
+| 📑 **Page-Level Citations**       | Reference the pages containing retrieved information              |
+| 💬 **Conversational Interface**   | Ask multiple questions through an interactive chat interface      |
+| 🚫 **Out-of-Scope Handling**      | Avoid generating answers when relevant information is unavailable |
+| ⚡ **Streaming Responses**         | Stream generated answers for a more interactive experience        |
+| 🗄️ **MySQL Integration**         | Persist application and document-related data                     |
+| 🔌 **REST API**                   | Flask-powered backend API                                         |
+| ⚛️ **React Frontend**             | Responsive frontend built with React and Vite                     |
+| 🧪 **Automated Testing**          | Backend testing using Pytest                                      |
+| 🔐 **Environment Configuration**  | Secure API credential configuration through environment variables |
+| 📱 **Responsive UI**              | Designed for different screen sizes                               |
 
-🧪 Backend tests using Pytest
+---
 
-🔐 Environment-based configuration for API credentials
+## 🧠 How AskDoc Works
 
-📱 Responsive user interface
+AskDoc follows a Retrieval-Augmented Generation workflow:
 
-🧠 How AskDoc Works
-
+```text
                     ┌─────────────────────┐
                     │   User uploads PDF  │
                     └──────────┬──────────┘
@@ -58,7 +85,7 @@ The system is designed to keep document retrieval grounded in the uploaded conte
                                │
                                ▼
                     ┌─────────────────────┐
-                    │    Embeddings       │
+                    │     Embeddings      │
                     │ all-MiniLM-L6-v2    │
                     └──────────┬──────────┘
                                │
@@ -68,84 +95,132 @@ The system is designed to keep document retrieval grounded in the uploaded conte
                     │ Documents + Vectors │
                     └──────────┬──────────┘
                                │
-                    User asks a question
+                     User asks a question
                                │
                                ▼
                     ┌─────────────────────┐
-                    │ Query Embedding     │
+                    │   Query Embedding   │
                     └──────────┬──────────┘
                                │
                                ▼
                     ┌─────────────────────┐
-                    │ Similarity Search   │
-                    │  Cosine Similarity  │
+                    │   Similarity Search │
+                    │   Cosine Similarity │
                     └──────────┬──────────┘
                                │
                                ▼
                     ┌─────────────────────┐
-                    │ Relevant Chunks     │
-                    │ + Page References   │
+                    │   Relevant Chunks   │
+                    │   + Page References│
                     └──────────┬──────────┘
                                │
                                ▼
                     ┌─────────────────────┐
-                    │    Groq LLM         │
+                    │      Groq LLM       │
                     │ Grounded Generation │
                     └──────────┬──────────┘
                                │
                                ▼
                     ┌─────────────────────┐
-                    │ Answer + Citations  │
+                    │  Answer + Citations │
                     └─────────────────────┘
+```
 
-🛠️ Technology Stack
+### 🔄 RAG Pipeline
 
-Frontend
+**1. Upload** → User uploads a document.
 
-React 19
+**2. Extract** → PyMuPDF extracts the document text while preserving page information.
 
-JavaScript
+**3. Chunk** → Extracted content is divided into smaller searchable chunks.
 
-Vite
+**4. Embed** → Sentence Transformers converts chunks into semantic vectors.
 
-CSS
+**5. Store** → Document data, chunks, embeddings, and references are persisted.
 
-Backend
+**6. Retrieve** → The user's question is converted into an embedding and compared against stored document vectors.
 
-Python
+**7. Generate** → Relevant chunks are provided to the Groq-powered LLM as context.
 
-Flask
+**8. Cite** → The generated response includes page-level references to the retrieved document content.
 
-PyMySQL
+---
 
-REST APIs
+## 🛠️ Technology Stack
 
-AI / RAG
+### Frontend
 
-Sentence Transformers
+* **React 19**
+* **JavaScript**
+* **Vite**
+* **CSS**
 
-all-MiniLM-L6-v2
+### Backend
 
-NumPy
+* **Python**
+* **Flask**
+* **PyMySQL**
+* **REST APIs**
 
-Cosine similarity
+### AI / RAG
 
-Groq
+* **Sentence Transformers**
+* **all-MiniLM-L6-v2**
+* **NumPy**
+* **Cosine Similarity**
+* **Groq**
 
-Document Processing
+### Document Processing
 
-PyMuPDF
+* **PyMuPDF**
 
-Database
+### Database
 
-MySQL
+* **MySQL**
 
-Testing
+### Testing
 
-Pytest
+* **Pytest**
 
-📁 Project Structure
+---
 
+## 🏗️ System Architecture
+
+```text
+┌─────────────────────────────────────────────────────┐
+│                    React Frontend                   │
+│                                                     │
+│  Upload Documents  │  Chat Interface  │  Citations │
+└───────────────────────┬─────────────────────────────┘
+                        │
+                        │ REST API
+                        ▼
+┌─────────────────────────────────────────────────────┐
+│                    Flask Backend                    │
+│                                                     │
+│  Document Processing │ Retrieval │ RAG │ Streaming  │
+└──────────────┬───────────────────────────┬──────────┘
+               │                           │
+               ▼                           ▼
+┌─────────────────────────┐    ┌──────────────────────┐
+│     Sentence           │    │        Groq LLM       │
+│     Transformers       │    │  Grounded Generation  │
+│     Embeddings         │    └──────────────────────┘
+└────────────┬────────────┘
+             │
+             ▼
+┌─────────────────────────────────────────────────────┐
+│                       MySQL                         │
+│                                                     │
+│  Documents │ Chunks │ Embeddings │ Page References │
+└─────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📁 Project Structure
+
+```text
 AskDoc/
 │
 ├── backend/
@@ -180,171 +255,217 @@ AskDoc/
 │
 ├── .gitignore
 └── README.md
+```
 
-⚙️ Requirements
+---
 
-Before running AskDoc, install:
+## ⚙️ Requirements
 
-Python 3.10+
+Before running AskDoc, make sure you have:
 
-Node.js 18+
+* Python **3.10+**
+* Node.js **18+**
+* npm
+* MySQL **8+**
+* Groq API key
 
-npm
+---
 
-MySQL 8+
+## 🚀 Getting Started
 
-A Groq API key
+### 1. Clone the Repository
 
-🚀 Installation
-
-1. Clone the repository
-
+```bash
 git clone https://github.com/HassanCodeHub/AskDoc.git
 cd AskDoc
+```
 
-2. Backend setup
+### 2. Set Up the Backend
 
+```bash
 cd backend
 python -m venv .venv
+```
+
+#### Windows PowerShell
+
+```powershell
 .\.venv\Scripts\Activate.ps1
+```
+
+Install the dependencies:
+
+```bash
 pip install -r requirements.txt
+```
 
-3. Configure environment variables
+---
 
-Create:
+### 3. Configure Environment Variables
 
+Create a `.env` file inside the `backend` directory:
+
+```text
 backend/.env
+```
 
 Add your local configuration and API credentials.
 
-Do not commit .env to GitHub.
+> ⚠️ Never commit your `.env` file or expose API credentials publicly.
 
-4. Configure MySQL
+---
 
-Create the AskDoc database and run:
+### 4. Configure MySQL
 
+Create the AskDoc database and execute:
+
+```text
 database/schema.sql
+```
 
-Then configure the database connection in your environment variables.
+Then configure the database connection through your environment variables.
 
-5. Start the backend
+---
 
-From:
+### 5. Start the Backend
 
-backend/
+From the `backend` directory:
 
-run:
-
+```bash
 python run.py
+```
 
 The Flask API will start locally.
 
-6. Start the frontend
+---
+
+### 6. Start the Frontend
 
 Open a second terminal:
 
+```bash
 cd frontend
 npm install
 npm run dev
+```
 
-Open the local Vite URL shown in the terminal.
+Open the local Vite URL displayed in the terminal.
 
-🔌 API
+---
 
-AskDoc provides REST endpoints for document processing and question answering.
+## 🔌 API
 
-The backend supports:
+AskDoc exposes REST endpoints for document processing and question answering.
 
-Document upload
+The backend currently supports:
 
-Document retrieval
+* 📄 Document upload
+* 🔎 Document retrieval
+* 🤖 Question answering
+* ⚡ Streaming question responses
+* ❤️ Health/status checks
 
-Question answering
+For the exact endpoint definitions, refer to the current Flask route implementation in the backend.
 
-Streaming question responses
+---
 
-Health/status checks
+## 🧪 Testing
 
-Refer to the backend route implementation for the current endpoint definitions.
+Navigate to the backend directory and run:
 
-🧪 Testing
-
-Backend tests can be executed from the backend directory:
-
+```bash
 pytest
+```
 
-Individual test files are also available for:
+The project includes tests covering areas such as:
 
-Groq connectivity
+* Groq connectivity
+* Document retrieval
+* RAG behavior
+* End-to-end document Q&A
+* Streaming responses
 
-Document retrieval
+---
 
-RAG behavior
+## 🔐 Security & Privacy
 
-End-to-end document Q&A
+AskDoc follows several basic security practices:
 
-Streaming responses
+* 🔑 API credentials are stored using environment variables.
+* 🚫 `.env` files are excluded from version control.
+* 📂 Uploaded documents are kept outside the public repository.
+* 🗄️ Database credentials should never be committed to GitHub.
 
-🔐 Security & Privacy
+> **Important:** Never push API keys, database passwords, or private documents to a public repository.
 
-API credentials are stored using environment variables.
+---
 
-.env files are excluded from version control.
+## 🎯 Project Goals
 
-Uploaded documents are kept outside the public repository.
+AskDoc was developed to demonstrate practical implementation of:
 
-Database credentials should never be committed to GitHub.
+* Retrieval-Augmented Generation
+* Semantic document search
+* Local embedding generation
+* Vector similarity retrieval
+* Grounded LLM responses
+* Full-stack application architecture
+* REST API development
+* React frontend development
+* MySQL data persistence
+* Automated backend testing
 
-🎯 Project Goals
+---
 
-AskDoc was built to demonstrate practical implementation of:
+## 📌 Current Limitations
 
-Retrieval-Augmented Generation
+AskDoc is currently a **portfolio and learning project**.
 
-Semantic document search
+Retrieval quality can depend on:
 
-Local embedding generation
+* Document structure
+* Chunking strategy
+* Embedding quality
+* Similarity threshold
+* Quality and relevance of the uploaded content
 
-Vector similarity retrieval
+AskDoc should **not** be treated as a source of professional, legal, medical, financial, or other high-stakes advice.
 
-LLM-based grounded responses
+---
 
-Full-stack application architecture
+## 🔮 Future Improvements
 
-REST API development
+Planned improvements include:
 
-React frontend development
+* 📄 Support for additional document formats
+* 🧩 Improved document chunking strategies
+* 🗃️ Persistent vector database integration
+* 🔐 Authentication and user accounts
+* 📚 Document management dashboard
+* 💬 Improved conversation history
+* 📊 Retrieval evaluation metrics
+* ☁️ Production deployment
 
-MySQL data persistence
+---
 
-📌 Current Limitations
+## 👨‍💻 Author
 
-AskDoc is a portfolio and learning project. Retrieval quality depends on document structure, chunking strategy, embedding quality, and the selected similarity threshold.
+### Hassan
 
-The system should not be treated as a source of professional, legal, medical, financial, or other high-stakes advice.
+**BCA Student · Full-Stack Developer**
 
-🔮 Future Improvements
+Building practical digital experiences with code and creativity.
 
-Support for additional document formats
+🔗 **GitHub:** [HassanCodeHub](https://github.com/HassanCodeHub)
 
-Improved chunking strategies
+---
 
-Persistent vector database integration
+## ⭐ Support
 
-Authentication and user accounts
+If you find AskDoc interesting or useful, consider giving the repository a ⭐ on GitHub.
 
-Document management dashboard
+---
 
-Improved conversation history
-
-Retrieval evaluation metrics
-
-Production deployment
-
-👨‍💻 Author
-
-Hassan
-
-BCA Student · Full-Stack Developer
-
-GitHub: HassanCodeHub
+<p align="center">
+  <b>AskDoc — Ask your documents. Get grounded answers.</b>
+</p>
