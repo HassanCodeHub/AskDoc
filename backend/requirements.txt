@@ -1,0 +1,7 @@
+Flask
+PyMySQL
+python-dotenv
+numpy
+PyMuPDF
+pytest
+sentence-transformers
