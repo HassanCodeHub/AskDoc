@@ -23,10 +23,6 @@ The system is designed to keep generated answers **grounded in the uploaded docu
 </p>
 
 <p align="center">
-  <img src="screenshots\Upload_page.png" alt="AskDoc Document Q&A" width="900"/>
-</p>
-
-<p align="center">
   <img src="screenshots\Question_input.png" alt="AskDoc Document Q&A" width="900"/>
 </p>
 
